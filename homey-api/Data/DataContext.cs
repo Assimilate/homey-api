@@ -9,6 +9,6 @@ namespace homey_api.Data
         {
         }
 
-        public DbSet<Room> Rooms { get; set; }
+        public DbSet<House> Houses { get; set; }
     }
 }

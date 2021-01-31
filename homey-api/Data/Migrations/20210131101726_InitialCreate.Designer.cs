@@ -8,7 +8,7 @@ using homey_api.Data;
 namespace homey_api.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210130144914_InitialCreate")]
+    [Migration("20210131101726_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,10 +17,24 @@ namespace homey_api.Data.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.2");
 
+            modelBuilder.Entity("homey_api.Entities.House", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Houses");
+                });
+
             modelBuilder.Entity("homey_api.Entities.Room", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("HouseId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("name")
@@ -31,7 +45,25 @@ namespace homey_api.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("HouseId");
+
                     b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("homey_api.Entities.Room", b =>
+                {
+                    b.HasOne("homey_api.Entities.House", "House")
+                        .WithMany("rooms")
+                        .HasForeignKey("HouseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("House");
+                });
+
+            modelBuilder.Entity("homey_api.Entities.House", b =>
+                {
+                    b.Navigation("rooms");
                 });
 #pragma warning restore 612, 618
         }
