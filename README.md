@@ -26,6 +26,6 @@ This project should run together with [Homey-App](https://github.com/Assimilate/
 
 4. Run `dotnet watch run` to start the API. Navigate to `https://localhost:5001/`.
 
-5. Make sure you allow the https certificate by clicking`continue to localhost anyway`.
+5. Make sure you allow the https certificate by clicking `continue to localhost anyway`.
 
 6. The API is now ready to communicate with the app; see [Homey-App](https://github.com/Assimilate/homey-app).
