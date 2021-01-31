@@ -4,7 +4,7 @@ This project should run together with [Homey-App](https://github.com/Assimilate/
 
 ## Backlog
 
-- Unit tests
+- Unit tests.
 
 - JWT Authentication.
 
