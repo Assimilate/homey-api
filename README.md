@@ -1,7 +1,5 @@
 # Homey
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
-
 This project should run together with [Homey-App](https://github.com/Assimilate/homey-app)
 
 ## Backlog
